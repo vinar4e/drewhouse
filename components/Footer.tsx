@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-dark border-t border-white/10">
+    <footer className="w-full border-t border-white/10">
       <div className="max-w-[1920px] mx-auto px-8 md:px-12 lg:px-16 py-8 md:py-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-0">
           {/* Left Content */}

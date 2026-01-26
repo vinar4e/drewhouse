@@ -3,28 +3,18 @@
 import { motion } from 'framer-motion'
 import Nav from '@/components/Nav'
 import Hero from '@/components/Hero'
-import ProjectGrid from '@/components/ProjectGrid'
-import About from '@/components/About'
-import Contact from '@/components/Contact'
-import Footer from '@/components/Footer'
+import ProjectCards from '@/components/ProjectCards'
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-black">
       <Nav />
       <div id="home">
         <Hero />
       </div>
       <div id="work">
-        <ProjectGrid />
+        <ProjectCards />
       </div>
-      <div id="about">
-        <About />
-      </div>
-      <div id="contact">
-        <Contact />
-      </div>
-      <Footer />
     </main>
   )
 }

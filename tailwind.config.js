@@ -10,6 +10,7 @@ module.exports = {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         display: ['PP Neue Montreal', 'Inter', 'system-ui', 'sans-serif'],
+        'short-stack': ['var(--font-short-stack)', 'Inter', 'system-ui', 'cursive'],
       },
       colors: {
         dark: '#0a0a0a',

@@ -28,7 +28,7 @@ export default function Contact() {
   }
 
   return (
-    <section className="min-h-screen py-32 md:py-40 px-8 md:px-12 lg:px-16 bg-dark">
+    <section className="min-h-screen py-32 md:py-40 px-8 md:px-12 lg:px-16">
       <div className="max-w-[1920px] mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 40 }}

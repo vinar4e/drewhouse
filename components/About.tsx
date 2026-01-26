@@ -15,7 +15,7 @@ const bigNames = [
 
 export default function About() {
   return (
-    <section className="min-h-screen py-32 md:py-40 px-8 md:px-12 lg:px-16 bg-dark">
+    <section className="min-h-screen py-32 md:py-40 px-8 md:px-12 lg:px-16">
       <div className="max-w-[1920px] mx-auto">
         <div className="grid md:grid-cols-2 gap-16 md:gap-24 lg:gap-32 items-start">
           {/* Image */}

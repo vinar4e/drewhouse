@@ -85,7 +85,7 @@ export default function ProjectGrid() {
   })
 
   return (
-    <section ref={containerRef} className="relative bg-black py-20">
+    <section ref={containerRef} className="relative py-20">
       {projects.map((project, index) => {
         const start = index / projects.length
         const end = (index + 1) / projects.length
@@ -111,7 +111,7 @@ export default function ProjectGrid() {
               borderRadius,
               position: 'sticky',
               top: '10vh',
-              zIndex: projects.length - index,
+              zIndex: index + 1,
             }}
             className="h-[80vh] w-full max-w-[85vw] mx-auto my-10 overflow-hidden rounded-2xl border border-white/50"
           >
