@@ -5,11 +5,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  
   body {
     @apply text-white antialiased;
     font-weight: 300;
     background: #0a0a0a;
     position: relative;
+    overflow-x: hidden;
   }
   
   body::before {
@@ -45,10 +51,6 @@
     image-rendering: crisp-edges;
   }
   
-  html {
-    scroll-behavior: smooth;
-  }
-  
   main {
     position: relative;
     z-index: 2;
@@ -78,8 +80,8 @@
   }
 
   .video-player-range::-webkit-slider-track {
-    background: rgba(255, 255, 255, 0.3);
-    height: 4px;
+    background: transparent;
+    height: 8px;
     border-radius: 2px;
   }
 
@@ -87,25 +89,40 @@
     -webkit-appearance: none;
     appearance: none;
     background: white;
-    height: 12px;
-    width: 12px;
+    height: 14px;
+    width: 14px;
     border-radius: 50%;
-    margin-top: -4px;
+    margin-top: -2px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .video-player-range::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   }
 
   .video-player-range::-moz-range-track {
-    background: rgba(255, 255, 255, 0.3);
-    height: 4px;
+    background: transparent;
+    height: 8px;
     border-radius: 2px;
   }
 
   .video-player-range::-moz-range-thumb {
     background: white;
-    height: 12px;
-    width: 12px;
+    height: 14px;
+    width: 14px;
     border-radius: 50%;
     border: none;
     cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    transition: all 0.2s ease;
+  }
+
+  .video-player-range::-moz-range-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   }
 
   /* Quilted Card Pattern */

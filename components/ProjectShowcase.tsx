@@ -135,8 +135,7 @@ function ProjectCard({ title, subtitle, image, video, projectId }: ProjectCardPr
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-100px' }}
         transition={{ duration: 0.6 }}
-        whileHover={{ y: -8, scale: 1.02 }}
-        className="relative group cursor-pointer overflow-hidden rounded-2xl aspect-[3/4] min-h-[500px]"
+        className="relative group cursor-pointer overflow-hidden rounded-2xl aspect-[3/4] w-full max-w-full min-h-[400px] sm:min-h-[500px]"
         style={{
           boxShadow: `
             0 20px 60px rgba(0,0,0,0.4),
@@ -144,6 +143,15 @@ function ProjectCard({ title, subtitle, image, video, projectId }: ProjectCardPr
           `,
           border: '1.5px solid rgba(180, 170, 190, 0.4)',
           transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+        }}
+        whileHover={{
+          boxShadow: `
+            0 20px 60px rgba(0,0,0,0.4),
+            0 8px 24px rgba(0,0,0,0.3),
+            0 0 40px rgba(120, 60, 100, 0.3),
+            0 0 80px rgba(80, 50, 120, 0.2)
+          `,
+          borderColor: 'rgba(180, 170, 190, 0.6)',
         }}
       >
         {/* Full card background image */}
@@ -186,26 +194,26 @@ function ProjectCard({ title, subtitle, image, video, projectId }: ProjectCardPr
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40 z-[3] group-hover:from-black/20 group-hover:via-black/15 group-hover:to-black/30 transition-all duration-300" />
 
         {/* Title - positioned over the pink background */}
-        <div className="absolute top-6 left-6 z-20">
-          <h3 className="text-white text-3xl md:text-4xl font-semibold mb-1 drop-shadow-lg">{title}</h3>
+        <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-20 pr-4 sm:pr-6">
+          <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-semibold mb-1 drop-shadow-lg break-words">{title}</h3>
           {subtitle && (
-            <p className="text-white/95 text-xl md:text-2xl font-light drop-shadow-md">{subtitle}</p>
+            <p className="text-white/95 text-lg sm:text-xl md:text-2xl font-light drop-shadow-md break-words">{subtitle}</p>
           )}
         </div>
 
         {/* Action Buttons - positioned at bottom left */}
-        <div className="absolute bottom-6 left-6 z-20 flex flex-col gap-4">
+        <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 z-20 flex flex-col gap-3 sm:gap-4 pr-4 sm:pr-6">
           {video && (
             <button
               onClick={handleQuickView}
-              className="flex items-center gap-3 text-white hover:text-white transition-colors group/btn relative"
+              className="flex items-center gap-2 sm:gap-3 text-white hover:text-white transition-colors group/btn relative"
             >
-              <div className="w-10 h-10 flex items-center justify-center">
-                <svg className="w-6 h-6 drop-shadow-lg" fill="currentColor" viewBox="0 0 20 20">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center flex-shrink-0">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 drop-shadow-lg" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
                 </svg>
               </div>
-              <span className="text-base md:text-lg font-medium drop-shadow-lg relative">
+              <span className="text-sm sm:text-base md:text-lg font-medium drop-shadow-lg relative whitespace-nowrap">
                 Quick View
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover/btn:w-full"></span>
               </span>
@@ -214,14 +222,14 @@ function ProjectCard({ title, subtitle, image, video, projectId }: ProjectCardPr
           {projectId && (
             <button
               onClick={handleFullProject}
-              className="flex items-center gap-3 text-white hover:text-white transition-colors group/btn relative"
+              className="flex items-center gap-2 sm:gap-3 text-white hover:text-white transition-colors group/btn relative"
             >
-              <div className="w-10 h-10 flex items-center justify-center">
-                <svg className="w-6 h-6 drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center flex-shrink-0">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
               </div>
-              <span className="text-base md:text-lg font-medium drop-shadow-lg relative">
+              <span className="text-sm sm:text-base md:text-lg font-medium drop-shadow-lg relative whitespace-nowrap">
                 Full Project
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover/btn:w-full"></span>
               </span>
@@ -289,8 +297,18 @@ export default function ProjectShowcase() {
   ]
 
   return (
-    <section className="relative w-full py-20 md:py-32 px-8 md:px-12 lg:px-16">
-      <div className="max-w-[1920px] mx-auto">
+    <section className="relative w-full py-20 md:py-32 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 overflow-hidden">
+      {/* Seamless Gradient Background - extends full width and merges with ProjectCards */}
+      <div className="absolute inset-0 bg-gradient-to-b from-blue-900/12 via-pink-900/8 to-transparent pointer-events-none z-0"
+           style={{ 
+             width: '100vw',
+             left: '50%',
+             right: '50%',
+             marginLeft: '-50vw',
+             marginRight: '-50vw'
+           }} />
+      
+      <div className="max-w-[1920px] mx-auto relative z-10">
         {/* Cool Text Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -308,7 +326,7 @@ export default function ProjectShowcase() {
         </motion.div>
 
         {/* Project Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
           {projects.map((project) => (
             <ProjectCard
               key={project.id}

@@ -50,9 +50,19 @@ export default function ProjectCards() {
 
   return (
     <>
-      <section className="relative w-full px-0">
-        <div className="max-w-[1920px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10">
+      <section className="relative w-full overflow-hidden">
+        {/* Seamless Gradient Background - extends full width and merges with sections */}
+        <div className="absolute inset-0 bg-gradient-to-b from-pink-900/12 via-purple-900/15 to-blue-900/12 pointer-events-none z-0" 
+             style={{ 
+               width: '100vw',
+               left: '50%',
+               right: '50%',
+               marginLeft: '-50vw',
+               marginRight: '-50vw'
+             }} />
+        
+        <div className="max-w-[1920px] mx-auto relative z-10 py-12 md:py-16 lg:py-20">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 px-4 md:px-6 lg:px-8">
             {/* Card 1 */}
             <motion.div
               initial="hidden"
@@ -61,13 +71,31 @@ export default function ProjectCards() {
               custom={0}
               variants={cardVariants}
               onClick={() => handleCardClick(0)}
-              className="relative bg-black aspect-square cursor-pointer group overflow-hidden border-2 border-white/40"
+              className="relative bg-gradient-to-br from-purple-950/30 via-pink-950/20 to-blue-950/30 aspect-square cursor-pointer group overflow-hidden rounded-lg"
+              style={{
+                border: '0.5px solid rgba(255, 255, 255, 0.1)',
+                boxShadow: `
+                  0 0 0 0 rgba(120, 60, 100, 0),
+                  0 8px 32px rgba(0, 0, 0, 0.4),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.05)
+                `,
+                transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+              }}
+              whileHover={{
+                boxShadow: `
+                  0 0 40px rgba(120, 60, 100, 0.3),
+                  0 0 80px rgba(80, 50, 120, 0.2),
+                  0 8px 32px rgba(0, 0, 0, 0.5),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.1)
+                `,
+                borderColor: 'rgba(255, 255, 255, 0.2)',
+              }}
             >
               <video
                 ref={(el) => {
                   videoRefs.current[0] = el
                 }}
-                className="absolute inset-0 w-full h-full object-cover opacity-100 group-hover:opacity-100 transition-opacity duration-300"
+                className="absolute inset-0 w-full h-full object-cover opacity-100 group-hover:opacity-100 transition-opacity duration-300 z-0"
                 muted
                 loop
                 playsInline
@@ -82,9 +110,12 @@ export default function ProjectCards() {
               >
                 <source src={videos[0]} type="video/mp4" />
               </video>
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-[1]" />
+              
               {/* Play overlay */}
-              <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors z-20">
-                <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+              <div className="absolute inset-0 flex items-center justify-center bg-black/10 group-hover:bg-black/5 transition-colors z-20">
+                <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:scale-110 group-hover:bg-white/15 transition-all duration-300 shadow-lg group-hover:shadow-xl group-hover:shadow-purple-500/20">
                   <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
                   </svg>
@@ -100,7 +131,25 @@ export default function ProjectCards() {
               custom={1}
               variants={cardVariants}
               onClick={() => handleCardClick(1)}
-              className="bg-black aspect-square cursor-pointer group overflow-hidden relative border-2 border-white/40"
+              className="relative bg-gradient-to-br from-pink-950/30 via-purple-950/20 to-blue-950/30 aspect-square cursor-pointer group overflow-hidden rounded-lg"
+              style={{
+                border: '0.5px solid rgba(255, 255, 255, 0.1)',
+                boxShadow: `
+                  0 0 0 0 rgba(80, 50, 120, 0),
+                  0 8px 32px rgba(0, 0, 0, 0.4),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.05)
+                `,
+                transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+              }}
+              whileHover={{
+                boxShadow: `
+                  0 0 40px rgba(80, 50, 120, 0.3),
+                  0 0 80px rgba(120, 60, 100, 0.2),
+                  0 8px 32px rgba(0, 0, 0, 0.5),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.1)
+                `,
+                borderColor: 'rgba(255, 255, 255, 0.2)',
+              }}
             >
               <video
                 ref={(el) => {
@@ -121,9 +170,12 @@ export default function ProjectCards() {
               >
                 <source src={videos[1]} type="video/mp4" />
               </video>
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-[1]" />
+              
               {/* Play overlay */}
-              <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors z-20">
-                <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+              <div className="absolute inset-0 flex items-center justify-center bg-black/10 group-hover:bg-black/5 transition-colors z-20">
+                <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:scale-110 group-hover:bg-white/15 transition-all duration-300 shadow-lg group-hover:shadow-xl group-hover:shadow-purple-500/20">
                   <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
                   </svg>
@@ -139,7 +191,25 @@ export default function ProjectCards() {
               custom={2}
               variants={cardVariants}
               onClick={() => handleCardClick(2)}
-              className="bg-black aspect-square cursor-pointer group overflow-hidden relative border-2 border-white/40"
+              className="relative bg-gradient-to-br from-blue-950/30 via-purple-950/20 to-pink-950/30 aspect-square cursor-pointer group overflow-hidden rounded-lg"
+              style={{
+                border: '0.5px solid rgba(255, 255, 255, 0.1)',
+                boxShadow: `
+                  0 0 0 0 rgba(60, 100, 150, 0),
+                  0 8px 32px rgba(0, 0, 0, 0.4),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.05)
+                `,
+                transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+              }}
+              whileHover={{
+                boxShadow: `
+                  0 0 40px rgba(60, 100, 150, 0.3),
+                  0 0 80px rgba(80, 50, 120, 0.2),
+                  0 8px 32px rgba(0, 0, 0, 0.5),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.1)
+                `,
+                borderColor: 'rgba(255, 255, 255, 0.2)',
+              }}
             >
               <video
                 ref={(el) => {
@@ -160,9 +230,12 @@ export default function ProjectCards() {
               >
                 <source src={videos[2]} type="video/mp4" />
               </video>
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-[1]" />
+              
               {/* Play overlay */}
-              <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors z-20">
-                <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+              <div className="absolute inset-0 flex items-center justify-center bg-black/10 group-hover:bg-black/5 transition-colors z-20">
+                <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:scale-110 group-hover:bg-white/15 transition-all duration-300 shadow-lg group-hover:shadow-xl group-hover:shadow-purple-500/20">
                   <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
                   </svg>

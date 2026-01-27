@@ -39,13 +39,16 @@ export default function CaseStudyModal({ caseStudy, onClose }: CaseStudyModalPro
 
   return (
     <AnimatePresence>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 md:p-8 overflow-y-auto scrollbar-hide"
-        onClick={onClose}
-      >
+      {caseStudy && (
+        <motion.div
+          key="case-study-modal"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 md:p-8 overflow-y-auto scrollbar-hide"
+          onClick={onClose}
+        >
+
         <motion.div
           initial={{ scale: 0.95, opacity: 0, y: 20 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
@@ -59,13 +62,17 @@ export default function CaseStudyModal({ caseStudy, onClose }: CaseStudyModalPro
             boxShadow: '0 20px 60px rgba(0, 0, 0, 0.5)'
           }}
         >
-          {/* Close Button */}
+          {/* Close Button - positioned inside modal content */}
           <button
-            onClick={onClose}
-            className="absolute top-6 right-6 z-50 w-12 h-12 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white transition-colors"
+            onClick={(e) => {
+              e.stopPropagation()
+              onClose()
+            }}
+            className="absolute top-16 right-4 md:top-20 md:right-6 z-50 w-8 h-8 md:w-10 md:h-10 bg-white/95 hover:bg-white rounded-full flex items-center justify-center text-black transition-all duration-200 shadow-[0_0_0_2px_rgba(0,0,0,0.2),0_4px_16px_rgba(0,0,0,0.6)] hover:scale-110 active:scale-95"
+            aria-label="Close modal"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
 
@@ -191,7 +198,8 @@ export default function CaseStudyModal({ caseStudy, onClose }: CaseStudyModalPro
             </div>
           </div>
         </motion.div>
-      </motion.div>
+        </motion.div>
+      )}
     </AnimatePresence>
   )
 }

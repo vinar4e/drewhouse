@@ -5,10 +5,11 @@ import Nav from '@/components/Nav'
 import Hero from '@/components/Hero'
 import ProjectCards from '@/components/ProjectCards'
 import ProjectShowcase from '@/components/ProjectShowcase'
+import About from '@/components/About'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black">
+    <main className="min-h-screen bg-black overflow-x-hidden">
       <Nav />
       <div id="home">
         <Hero />
@@ -17,6 +18,7 @@ export default function Home() {
         <ProjectCards />
       </div>
       <ProjectShowcase />
+      <About />
     </main>
   )
 }

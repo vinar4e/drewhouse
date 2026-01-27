@@ -11,8 +11,18 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="relative w-full pt-24 md:pt-32 lg:pt-40 pb-16 md:pb-20 lg:pb-24 px-8 md:px-12 lg:px-16">
-      <div className="max-w-[1920px] mx-auto">
+    <section className="relative w-full pt-24 md:pt-32 lg:pt-40 pb-16 md:pb-20 lg:pb-24 px-8 md:px-12 lg:px-16 overflow-hidden">
+      {/* Seamless Gradient Background - extends full width */}
+      <div className="absolute inset-0 bg-gradient-to-b from-purple-900/5 via-purple-900/8 to-pink-900/12 pointer-events-none z-0"
+           style={{ 
+             width: '100vw',
+             left: '50%',
+             right: '50%',
+             marginLeft: '-50vw',
+             marginRight: '-50vw'
+           }} />
+      
+      <div className="max-w-[1920px] mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 40 }}
