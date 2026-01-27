@@ -30,10 +30,42 @@ const clients = [
 ]
 
 const stats = [
-  { number: '10+', label: 'Years Experience' },
-  { number: '200+', label: 'Projects Delivered' },
-  { number: '50+', label: 'Global Clients' },
-  { number: '15+', label: 'Awards Won' },
+  { 
+    number: '10+', 
+    label: 'Years Experience',
+    icon: (
+      <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+      </svg>
+    )
+  },
+  { 
+    number: '200+', 
+    label: 'Projects Delivered',
+    icon: (
+      <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+      </svg>
+    )
+  },
+  { 
+    number: '50+', 
+    label: 'Global Clients',
+    icon: (
+      <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    )
+  },
+  { 
+    number: '15+', 
+    label: 'Awards Won',
+    icon: (
+      <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+      </svg>
+    )
+  },
 ]
 
 export default function About() {
@@ -107,18 +139,26 @@ export default function About() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative bg-gradient-to-br from-purple-950/20 via-pink-950/15 to-blue-950/20 rounded-lg p-6 md:p-8 border border-white/10 backdrop-blur-sm"
+                className="relative bg-teal-900/80 rounded-xl p-6 md:p-8"
                 style={{
+                  border: '1px solid rgba(94, 234, 212, 0.2)',
                   boxShadow: `
-                    0 8px 32px rgba(0, 0, 0, 0.3),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.05)
+                    0 0 0 1px rgba(94, 234, 212, 0.1),
+                    0 4px 20px rgba(0, 0, 0, 0.4),
+                    0 0 40px rgba(94, 234, 212, 0.05)
                   `,
                 }}
               >
-                <div className="text-white text-3xl md:text-4xl lg:text-5xl font-semibold mb-2">
+                {/* Icon at top-left */}
+                <div className="text-cyan-400 mb-4">
+                  {stat.icon}
+                </div>
+                
+                {/* Number and label below icon */}
+                <div className="text-white text-2xl md:text-3xl lg:text-4xl font-semibold mb-1">
                   {stat.number}
                 </div>
-                <div className="text-white/70 text-sm md:text-base font-light">
+                <div className="text-white/90 text-sm md:text-base font-medium">
                   {stat.label}
                 </div>
               </motion.div>
