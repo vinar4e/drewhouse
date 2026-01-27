@@ -1,34 +1,58 @@
 'use client'
 
 import { motion, AnimatePresence } from 'framer-motion'
-import { useState, useRef } from 'react'
+import { useState, useRef, useCallback } from 'react'
 import CustomVideoPlayer from './CustomVideoPlayer'
+
+function captureVideoFrameAsPoster(el: HTMLVideoElement) {
+  if (!el || el.videoWidth === 0 || el.videoHeight === 0) return
+  const canvas = document.createElement('canvas')
+  canvas.width = el.videoWidth
+  canvas.height = el.videoHeight
+  const ctx = canvas.getContext('2d')
+  if (!ctx) return
+  ctx.drawImage(el, 0, 0)
+  try {
+    el.poster = canvas.toDataURL('image/jpeg', 0.88)
+  } catch {
+    /* ignore */
+  }
+  el.currentTime = 0
+  el.pause()
+}
 
 export default function ProjectCards() {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null)
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([])
 
-  // Local video paths - update these with your actual video file paths
-  const videos = [
-    '/videos/video1.mp4',
-    '/videos/video2.mp4',
-    '/videos/video3.mp4',
+  const videoCache = '?v=2'
+  const cards = [
+    { video: '/videos/video1.mp4' + videoCache },
+    { video: '/videos/video2.mp4' + videoCache },
+    { video: '/videos/video3.mp4' + videoCache },
   ]
 
   const handleCardClick = (index: number) => {
-    setSelectedVideo(videos[index])
+    setSelectedVideo(cards[index].video)
   }
 
   const closeVideo = () => {
     setSelectedVideo(null)
-    // Pause all videos when closing
-    videoRefs.current.forEach((video) => {
-      if (video) {
-        video.pause()
-        video.currentTime = 0
-      }
-    })
   }
+
+  // Force first frame to paint (many browsers don’t show it until video has played once)
+
+  const onVideoLoaded = useCallback((index: number) => {
+    const el = videoRefs.current[index]
+    if (!el) return
+    el.currentTime = 0
+    el.play()
+      .then(() => {
+        el.pause()
+        captureVideoFrameAsPoster(el)
+      })
+      .catch(() => {})
+  }, [])
 
   const cardVariants = {
     hidden: { 
@@ -51,16 +75,6 @@ export default function ProjectCards() {
   return (
     <>
       <section className="relative w-full overflow-hidden">
-        {/* Seamless Gradient Background - extends full width and merges with sections */}
-        <div className="absolute inset-0 bg-gradient-to-b from-pink-900/12 via-purple-900/15 to-blue-900/12 pointer-events-none z-0" 
-             style={{ 
-               width: '100vw',
-               left: '50%',
-               right: '50%',
-               marginLeft: '-50vw',
-               marginRight: '-50vw'
-             }} />
-        
         <div className="max-w-[1920px] mx-auto relative z-10 py-12 md:py-16 lg:py-20">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 px-4 md:px-6 lg:px-8">
             {/* Card 1 */}
@@ -92,23 +106,20 @@ export default function ProjectCards() {
               }}
             >
               <video
-                ref={(el) => {
-                  videoRefs.current[0] = el
-                }}
-                className="absolute inset-0 w-full h-full object-cover opacity-100 group-hover:opacity-100 transition-opacity duration-300 z-0"
+                ref={(el) => { videoRefs.current[0] = el }}
+                className="absolute inset-0 w-full h-full object-cover z-0"
                 muted
                 loop
                 playsInline
-                preload="metadata"
-                onMouseEnter={(e) => {
-                  e.currentTarget.play()
-                }}
+                preload="auto"
+                onLoadedData={() => onVideoLoaded(0)}
+                onMouseEnter={(e) => e.currentTarget.play()}
                 onMouseLeave={(e) => {
                   e.currentTarget.pause()
                   e.currentTarget.currentTime = 0
                 }}
               >
-                <source src={videos[0]} type="video/mp4" />
+                <source src={cards[0].video} type="video/mp4" />
               </video>
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-[1]" />
@@ -152,23 +163,20 @@ export default function ProjectCards() {
               }}
             >
               <video
-                ref={(el) => {
-                  videoRefs.current[1] = el
-                }}
-                className="absolute inset-0 w-full h-full object-cover opacity-100 group-hover:opacity-100 transition-opacity duration-300"
+                ref={(el) => { videoRefs.current[1] = el }}
+                className="absolute inset-0 w-full h-full object-cover z-0"
                 muted
                 loop
                 playsInline
-                preload="metadata"
-                onMouseEnter={(e) => {
-                  e.currentTarget.play()
-                }}
+                preload="auto"
+                onLoadedData={() => onVideoLoaded(1)}
+                onMouseEnter={(e) => e.currentTarget.play()}
                 onMouseLeave={(e) => {
                   e.currentTarget.pause()
                   e.currentTarget.currentTime = 0
                 }}
               >
-                <source src={videos[1]} type="video/mp4" />
+                <source src={cards[1].video} type="video/mp4" />
               </video>
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-[1]" />
@@ -212,23 +220,20 @@ export default function ProjectCards() {
               }}
             >
               <video
-                ref={(el) => {
-                  videoRefs.current[2] = el
-                }}
-                className="absolute inset-0 w-full h-full object-cover opacity-100 group-hover:opacity-100 transition-opacity duration-300"
+                ref={(el) => { videoRefs.current[2] = el }}
+                className="absolute inset-0 w-full h-full object-cover z-0"
                 muted
                 loop
                 playsInline
-                preload="metadata"
-                onMouseEnter={(e) => {
-                  e.currentTarget.play()
-                }}
+                preload="auto"
+                onLoadedData={() => onVideoLoaded(2)}
+                onMouseEnter={(e) => e.currentTarget.play()}
                 onMouseLeave={(e) => {
                   e.currentTarget.pause()
                   e.currentTarget.currentTime = 0
                 }}
               >
-                <source src={videos[2]} type="video/mp4" />
+                <source src={cards[2].video} type="video/mp4" />
               </video>
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-[1]" />

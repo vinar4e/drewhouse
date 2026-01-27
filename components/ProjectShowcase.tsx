@@ -270,6 +270,9 @@ function ProjectCard({ title, subtitle, image, video, projectId }: ProjectCardPr
   )
 }
 
+// Bump this when you replace any video file so the new file loads (matches ProjectCards)
+const VIDEO_CACHE = '?v=2'
+
 export default function ProjectShowcase() {
   // Example projects - replace with your actual data
   const projects = [
@@ -278,36 +281,26 @@ export default function ProjectShowcase() {
       title: 'Gilga Farm',
       subtitle: 'for Moncler',
       image: '/images/stock1.jpg', // Replace with actual image path
-      video: '/videos/video1.mp4',
+      video: '/videos/video1.mp4' + VIDEO_CACHE,
     },
     {
       id: '2',
       title: 'Project Two',
       subtitle: 'for Client Name',
       image: '/images/stock1.jpg',
-      video: '/videos/video2.mp4',
+      video: '/videos/video2.mp4' + VIDEO_CACHE,
     },
     {
       id: '3',
       title: 'Project Three',
       subtitle: 'for Client Name',
       image: '/images/stock1.jpg',
-      video: '/videos/video3.mp4',
+      video: '/videos/video3.mp4' + VIDEO_CACHE,
     },
   ]
 
   return (
     <section className="relative w-full py-20 md:py-32 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 overflow-hidden">
-      {/* Seamless Gradient Background - extends full width and merges with ProjectCards */}
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-900/12 via-pink-900/8 to-transparent pointer-events-none z-0"
-           style={{ 
-             width: '100vw',
-             left: '50%',
-             right: '50%',
-             marginLeft: '-50vw',
-             marginRight: '-50vw'
-           }} />
-      
       <div className="max-w-[1920px] mx-auto relative z-10">
         {/* Cool Text Heading */}
         <motion.div

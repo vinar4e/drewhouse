@@ -8,10 +8,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['PP Neue Montreal', 'Inter', 'system-ui', 'sans-serif'],
-        'short-stack': ['var(--font-short-stack)', 'Inter', 'system-ui', 'cursive'],
-        'noto-serif': ['var(--font-noto-serif)', 'serif'],
+        sans: ['Kanit', 'system-ui', 'sans-serif'],
+        display: ['Kanit', 'system-ui', 'sans-serif'],
+        'short-stack': ['var(--font-short-stack)', 'Kanit', 'system-ui', 'cursive'],
+        'noto-serif': ['Kanit', 'serif'],
       },
       colors: {
         dark: '#0a0a0a',

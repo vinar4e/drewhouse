@@ -92,8 +92,10 @@ export default function Nav() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black ${
-          isScrolled ? 'border-b border-white/10' : ''
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? 'bg-black/[0.06] border-b border-white/[0.03]'
+            : 'bg-transparent'
         }`}
       >
         <div className="max-w-[1920px] mx-auto px-4 md:px-8 lg:px-12 xl:px-16 py-4 md:py-6 lg:py-8">
@@ -112,7 +114,7 @@ export default function Nav() {
               <a
                 href="#work"
                 onClick={(e) => handleNavClick(e, 'work')}
-                className="text-white text-sm md:text-base font-medium relative group transition-all duration-300"
+                className="text-white text-sm md:text-base font-medium relative group transition-all duration-300 uppercase"
               >
                 <span className="relative">
                   Work
@@ -145,7 +147,7 @@ export default function Nav() {
               <a
                 href="#about"
                 onClick={(e) => handleNavClick(e, 'about')}
-                className="text-white text-sm md:text-base font-medium relative group transition-all duration-300"
+                className="text-white text-sm md:text-base font-medium relative group transition-all duration-300 uppercase"
               >
                 <span className="relative">
                   About
@@ -155,7 +157,7 @@ export default function Nav() {
               <a
                 href="#contact"
                 onClick={(e) => handleNavClick(e, 'contact')}
-                className="text-white text-sm md:text-base font-medium relative group transition-all duration-300"
+                className="text-white text-sm md:text-base font-medium relative group transition-all duration-300 uppercase"
               >
                 <span className="relative">
                   Contact
@@ -231,7 +233,7 @@ export default function Nav() {
                   variants={menuItemVariants}
                   initial="hidden"
                   animate="visible"
-                  className="text-white text-xl font-medium py-4 border-b border-white/10 relative group"
+                  className="text-white text-xl font-medium py-4 border-b border-white/10 relative group uppercase"
                 >
                   <span className="relative">
                     Work
@@ -245,7 +247,7 @@ export default function Nav() {
                   variants={menuItemVariants}
                   initial="hidden"
                   animate="visible"
-                  className="text-white text-xl font-medium py-4 border-b border-white/10 relative group"
+                  className="text-white text-xl font-medium py-4 border-b border-white/10 relative group uppercase"
                 >
                   <span className="relative">
                     About
@@ -259,7 +261,7 @@ export default function Nav() {
                   variants={menuItemVariants}
                   initial="hidden"
                   animate="visible"
-                  className="text-white text-xl font-medium py-4 border-b border-white/10 relative group"
+                  className="text-white text-xl font-medium py-4 border-b border-white/10 relative group uppercase"
                 >
                   <span className="relative">
                     Contact

@@ -9,7 +9,7 @@ import About from '@/components/About'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black overflow-x-hidden">
+    <main className="min-h-screen overflow-x-hidden">
       <Nav />
       <div id="home">
         <Hero />

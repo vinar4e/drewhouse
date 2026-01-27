@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 @layer base {
   html {
@@ -12,6 +12,7 @@
   
   body {
     @apply text-white antialiased;
+    font-family: 'Kanit', system-ui, sans-serif;
     font-weight: 300;
     background: #0a0a0a;
     position: relative;
@@ -25,12 +26,12 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: 
-      radial-gradient(circle at 20% 50%, rgba(80, 50, 120, 0.2) 0%, transparent 60%),
-      radial-gradient(circle at 80% 80%, rgba(120, 60, 100, 0.2) 0%, transparent 60%),
-      radial-gradient(circle at 40% 20%, rgba(60, 100, 150, 0.15) 0%, transparent 60%),
-      radial-gradient(circle at 60% 40%, rgba(80, 120, 70, 0.12) 0%, transparent 50%);
-    background-size: 100% 100%;
+    background: linear-gradient(
+      180deg,
+      rgba(18, 15, 28, 0.72) 0%,
+      rgba(14, 12, 22, 0.68) 50%,
+      rgba(18, 15, 28, 0.72) 100%
+    );
     z-index: 0;
     pointer-events: none;
   }

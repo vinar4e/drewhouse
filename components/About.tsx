@@ -17,18 +17,6 @@ const values = [
   },
 ]
 
-const clients = [
-  'Nike',
-  'Apple',
-  'Netflix',
-  'Moncler',
-  'Universal Music',
-  'Sundance Film Festival',
-  'BMW',
-  'Adidas',
-  'Sony Pictures',
-]
-
 const stats = [
   { 
     number: '10+', 
@@ -71,16 +59,6 @@ const stats = [
 export default function About() {
   return (
     <section id="about" className="relative w-full py-20 md:py-32 lg:py-40 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 overflow-hidden">
-      {/* Seamless Gradient Background - extends full width */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/10 to-pink-900/15 pointer-events-none z-0"
-           style={{ 
-             width: '100vw',
-             left: '50%',
-             right: '50%',
-             marginLeft: '-50vw',
-             marginRight: '-50vw'
-           }} />
-      
       <div className="max-w-[1920px] mx-auto relative z-10">
         {/* Main Heading */}
         <motion.div
@@ -106,22 +84,33 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="space-y-6"
+            className="relative rounded-xl p-6 md:p-8"
+            style={{
+              background: 'rgba(28, 24, 42, 0.85)',
+              border: '1px solid rgba(120, 90, 160, 0.25)',
+              boxShadow: `
+                0 0 0 1px rgba(100, 70, 140, 0.1),
+                0 4px 24px rgba(0, 0, 0, 0.4),
+                0 0 40px rgba(80, 60, 120, 0.08)
+              `,
+            }}
           >
             <h3 className="text-white text-2xl md:text-3xl font-semibold mb-4">
               Our Story
             </h3>
-            <p className="text-white/80 text-base md:text-lg font-light leading-relaxed">
-              With over a decade of experience in video editing, color grading, and creative direction,
-              we specialize in creating compelling visual narratives for commercial clients, film productions,
-              and advertising agencies. Our work combines technical precision with creative vision to deliver
-              content that resonates with audiences and drives results.
-            </p>
-            <p className="text-white/80 text-base md:text-lg font-light leading-relaxed">
-              We believe that great design isn't just about aesthetics—it's about creating meaningful connections
-              between brands and their audiences. Every project we take on is an opportunity to push boundaries,
-              tell stories, and shape culture.
-            </p>
+            <div className="space-y-4">
+              <p className="text-white/90 text-base md:text-lg font-light leading-relaxed">
+                With over a decade of experience in video editing, color grading, and creative direction,
+                we specialize in creating compelling visual narratives for commercial clients, film productions,
+                and advertising agencies. Our work combines technical precision with creative vision to deliver
+                content that resonates with audiences and drives results.
+              </p>
+              <p className="text-white/90 text-base md:text-lg font-light leading-relaxed">
+                We believe that great design isn't just about aesthetics—it's about creating meaningful connections
+                between brands and their audiences. Every project we take on is an opportunity to push boundaries,
+                tell stories, and shape culture.
+              </p>
+            </div>
           </motion.div>
 
           {/* Right Column - Stats */}
@@ -139,18 +128,19 @@ export default function About() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative bg-teal-900/80 rounded-xl p-6 md:p-8"
+                className="relative rounded-xl p-6 md:p-8"
                 style={{
-                  border: '1px solid rgba(94, 234, 212, 0.2)',
+                  background: 'rgba(28, 24, 42, 0.85)',
+                  border: '1px solid rgba(120, 90, 160, 0.25)',
                   boxShadow: `
-                    0 0 0 1px rgba(94, 234, 212, 0.1),
-                    0 4px 20px rgba(0, 0, 0, 0.4),
-                    0 0 40px rgba(94, 234, 212, 0.05)
+                    0 0 0 1px rgba(100, 70, 140, 0.1),
+                    0 4px 24px rgba(0, 0, 0, 0.4),
+                    0 0 40px rgba(80, 60, 120, 0.08)
                   `,
                 }}
               >
                 {/* Icon at top-left */}
-                <div className="text-cyan-400 mb-4">
+                <div className="text-violet-400 mb-4">
                   {stat.icon}
                 </div>
                 
@@ -185,56 +175,23 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
-                className="relative bg-gradient-to-br from-purple-950/20 via-pink-950/15 to-blue-950/20 rounded-lg p-6 md:p-8 border border-white/10 backdrop-blur-sm group"
+                className="relative rounded-xl p-6 md:p-8"
                 style={{
+                  background: 'rgba(28, 24, 42, 0.85)',
+                  border: '1px solid rgba(120, 90, 160, 0.25)',
                   boxShadow: `
-                    0 8px 32px rgba(0, 0, 0, 0.3),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.05)
+                    0 0 0 1px rgba(100, 70, 140, 0.1),
+                    0 4px 24px rgba(0, 0, 0, 0.4),
+                    0 0 40px rgba(80, 60, 120, 0.08)
                   `,
-                  transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                }}
-                whileHover={{
-                  boxShadow: `
-                    0 0 40px rgba(120, 60, 100, 0.3),
-                    0 0 80px rgba(80, 50, 120, 0.2),
-                    0 8px 32px rgba(0, 0, 0, 0.4),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.1)
-                  `,
-                  borderColor: 'rgba(255, 255, 255, 0.2)',
                 }}
               >
                 <h4 className="text-white text-xl md:text-2xl font-semibold mb-3">
                   {value.title}
                 </h4>
-                <p className="text-white/70 text-sm md:text-base font-light leading-relaxed">
+                <p className="text-white/90 text-sm md:text-base font-light leading-relaxed">
                   {value.description}
                 </p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Clients Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <h3 className="text-white text-2xl md:text-3xl font-semibold mb-12 text-center">
-            Trusted By Leading Brands
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
-            {clients.map((client, index) => (
-              <motion.div
-                key={client}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
-                className="text-white/70 hover:text-white/90 text-center text-base md:text-lg font-light transition-colors duration-300 py-4 px-6 rounded-lg border border-white/5 hover:border-white/10 bg-white/5 hover:bg-white/10"
-              >
-                {client}
               </motion.div>
             ))}
           </div>
