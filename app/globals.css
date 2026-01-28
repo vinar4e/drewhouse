@@ -2,7 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@font-face {
+  font-family: 'AveriaSerifLibre';
+  src: url('/fonts/AveriaSerifLibre-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 @layer base {
   html {
@@ -12,8 +18,8 @@
   
   body {
     @apply text-white antialiased;
-    font-family: 'Kanit', system-ui, sans-serif;
-    font-weight: 300;
+    font-family: 'AveriaSerifLibre', serif;
+    font-weight: 700;
     background: #0a0a0a;
     position: relative;
     overflow-x: hidden;

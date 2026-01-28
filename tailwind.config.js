@@ -8,10 +8,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Kanit', 'system-ui', 'sans-serif'],
-        display: ['Kanit', 'system-ui', 'sans-serif'],
-        'short-stack': ['var(--font-short-stack)', 'Kanit', 'system-ui', 'cursive'],
-        'noto-serif': ['Kanit', 'serif'],
+        sans: ['AveriaSerifLibre', 'serif'],
+        display: ['AveriaSerifLibre', 'serif'],
+        'short-stack': ['var(--font-short-stack)', 'AveriaSerifLibre', 'serif', 'cursive'],
+        'noto-serif': ['AveriaSerifLibre', 'serif'],
       },
       colors: {
         dark: '#0a0a0a',
