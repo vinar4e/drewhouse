@@ -8,10 +8,11 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['AveriaSerifLibre', 'serif'],
-        display: ['AveriaSerifLibre', 'serif'],
-        'short-stack': ['var(--font-short-stack)', 'AveriaSerifLibre', 'serif', 'cursive'],
-        'noto-serif': ['AveriaSerifLibre', 'serif'],
+        sans: ['Chakra Petch', 'system-ui', 'sans-serif'],
+        display: ['Chakra Petch', 'system-ui', 'sans-serif'],
+        'short-stack': ['var(--font-short-stack)', 'Chakra Petch', 'system-ui', 'cursive'],
+        'noto-serif': ['Chakra Petch', 'serif'],
+        'averia-serif': ['AveriaSerifLibre', 'serif'],
       },
       colors: {
         dark: '#0a0a0a',

@@ -97,6 +97,7 @@ export default function Nav() {
             ? 'bg-black/[0.06] border-b border-white/[0.03]'
             : 'bg-transparent'
         }`}
+        style={{ fontFamily: "'AveriaSerifLibre', serif" }}
       >
         <div className="max-w-[1920px] mx-auto px-4 md:px-8 lg:px-12 xl:px-16 py-4 md:py-6 lg:py-8">
           <div className="flex items-center justify-between">
