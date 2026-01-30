@@ -13,6 +13,8 @@ module.exports = {
         'short-stack': ['var(--font-short-stack)', 'Chakra Petch', 'system-ui', 'cursive'],
         'noto-serif': ['Chakra Petch', 'serif'],
         'averia-serif': ['AveriaSerifLibre', 'serif'],
+        'kanit-semibold': ['Kanit', 'system-ui', 'sans-serif'],
+        cabin: ['var(--font-cabin)', 'system-ui', 'sans-serif'],
       },
       colors: {
         dark: '#0a0a0a',

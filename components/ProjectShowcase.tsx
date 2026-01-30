@@ -300,7 +300,7 @@ export default function ProjectShowcase() {
   ]
 
   return (
-    <section className="relative w-full py-20 md:py-32 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 overflow-hidden">
+    <section className="relative w-full pt-4 md:pt-8 lg:pt-10 pb-20 md:pb-32 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 overflow-hidden">
       <div className="max-w-[1920px] mx-auto relative z-10">
         {/* Cool Text Heading */}
         <motion.div
@@ -310,7 +310,7 @@ export default function ProjectShowcase() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16 md:mb-24"
         >
-          <h2 className="font-noto-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal text-white uppercase leading-[1.1] tracking-tight mb-4">
+          <h2 className="font-kanit-semibold text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white uppercase leading-[1.1] tracking-tight mb-4">
             Featured Projects
           </h2>
           <p className="text-white/60 text-lg md:text-xl font-light max-w-2xl mx-auto">

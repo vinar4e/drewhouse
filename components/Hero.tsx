@@ -11,7 +11,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="relative w-full pt-24 md:pt-32 lg:pt-40 pb-16 md:pb-20 lg:pb-24 px-8 md:px-12 lg:px-16 overflow-hidden">
+    <section className="relative w-full pt-24 md:pt-32 lg:pt-40 pb-8 md:pb-12 lg:pb-16 px-8 md:px-12 lg:px-16 overflow-hidden">
       <div className="max-w-[1920px] mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -19,7 +19,7 @@ export default function Hero() {
           transition={{ duration: 1.2, ease: 'easeOut' }}
           className="text-center"
         >
-          <h1 className="font-noto-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal text-white uppercase leading-[1.1] tracking-tight">
+          <h1 className="font-cabin text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-normal text-white uppercase leading-[1.1] tracking-tight">
             A DESIGN STUDIO FOR BRANDS<br />WHO MOVE CULTURE
           </h1>
         </motion.div>

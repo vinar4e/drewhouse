@@ -75,7 +75,7 @@ export default function ProjectCards() {
   return (
     <>
       <section className="relative w-full overflow-hidden">
-        <div className="max-w-[1920px] mx-auto relative z-10 py-12 md:py-16 lg:py-20">
+        <div className="max-w-[1920px] mx-auto relative z-10 pt-6 md:pt-8 lg:pt-10 pb-12 md:pb-16 lg:pb-20">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 px-4 md:px-6 lg:px-8">
             {/* Card 1 */}
             <motion.div

@@ -12,6 +12,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Kanit';
+  src: url('/fonts/Kanit-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -67,6 +75,25 @@
 }
 
 @layer utilities {
+  /* Hero headline: 3D extrusion + soft glow */
+  .hero-title-3d {
+    color: #fff;
+    text-shadow:
+      0 0 20px rgba(255, 255, 255, 0.15),
+      0 0 40px rgba(255, 255, 255, 0.08),
+      1px 1px 0 rgba(0, 0, 0, 0.4),
+      2px 2px 0 rgba(0, 0, 0, 0.35),
+      3px 3px 0 rgba(0, 0, 0, 0.3),
+      4px 4px 0 rgba(0, 0, 0, 0.25),
+      5px 5px 0 rgba(0, 0, 0, 0.2),
+      6px 6px 0 rgba(0, 0, 0, 0.18),
+      7px 7px 0 rgba(0, 0, 0, 0.15),
+      8px 8px 0 rgba(0, 0, 0, 0.12),
+      9px 9px 0 rgba(0, 0, 0, 0.1),
+      10px 10px 0 rgba(0, 0, 0, 0.08),
+      11px 11px 2px rgba(0, 0, 0, 0.15);
+  }
+
   .text-balance {
     text-wrap: balance;
   }

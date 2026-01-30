@@ -5,6 +5,7 @@ import Nav from '@/components/Nav'
 import Hero from '@/components/Hero'
 import ProjectCards from '@/components/ProjectCards'
 import ProjectShowcase from '@/components/ProjectShowcase'
+import ImageSection from '@/components/ImageSection'
 import About from '@/components/About'
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
         <ProjectCards />
       </div>
       <ProjectShowcase />
+      <ImageSection />
       <About />
     </main>
   )
